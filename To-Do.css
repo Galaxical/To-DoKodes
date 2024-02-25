@@ -1,0 +1,15 @@
+body{
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: bisque;
+}
+
+h1{
+    text-align: center;
+}
+
+#New-Task{
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 80px;
+}
