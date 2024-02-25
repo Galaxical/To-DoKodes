@@ -1,42 +1,40 @@
-//declare constant variables for the user task input
-const addNewTask = document.getElementById('New-Task');
-const addNewTaskButton = document.getElementById('add-task');
-const taskList = document.getElementById('tasks');
+document.addEventListener("DOMContentLoaded", function(){
+    //access local storage
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-let tasks = []
 
-//create function to add task to list
-function addTask(task){
-    const taskItem = document.createElement('li');
-    taskItem.textContent = task
+    displayTasks();
+})
 
-    //function to create checkbox for UX
+//create function to add task
 
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.addEventListener('change', () => {
-        taskItem.classList.toggle('completed');
-    });
+function addTask(){
+    const taskInput = document.getElementById("TodoInput");
+    const taskList = document.getElementById("TaskList");
+    const taskText = taskInput.value;
 
-    //function to create a delete button
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.addEventListener('click', () => {
-        taskList.removeChild(taskItem);
-        tasks = tasks.filter(t => t !== task);
-    });
-
-    //declare the inputs from the user
-
-    taskItem.appendChild(checkbox);
-    taskItem.appendChild(document.createTextNode(' '));
-    taskItem.appendChild(task);
-    taskItem.appendChild(deleteButton);
-    taskList.appendChild(taskItem);
-    task.push(task);
-
-    //get the value of new task 
-    addNewTask.value = '';
-    addNewTask.focus();
+    if (taskText !== ""){
+        const li = document.createElement("li");
+        li.innerHTML = '<input type="text" value="' + taskText + '" readonly>' +
+        `<button onClick = "deleteTask(this)">Delete</button>`;
+        taskList.appendChild("li");
+        taskInput.value = ""; 
+    }
 }
+
+//delete task element
+function deleteTask (){
+    const taskList = document.getElementById("TodoList")
+    const li = element.parentNode;
+    taskList.removeChild(li)
+}
+//store and retrieve tasks from local storage
+const storeTasks = localStorage.getItem('tasks');
+if(storeTasks){
+    tasks = JSON.parse(storeTasks);
+    tasks.forEach(task=> addTask(task));
+}
+
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+});
