@@ -1,9 +1,28 @@
-body{
-    font-family: sans-serif;
-    margin: 20px;
-    background-color: bisque;
+:root{
+    --bg: #463333;
+    --text: #fff0f0;
+    --line:#ebd4bd;
+    --last: #bb9e9e;
+    --box-shadow: 0 1px 5px rgba(250, 250, 250, 0.2),
+    0 1px 5px rgba(255, 255, 255, 0.3)
 }
 
+body{
+    font-family: "viaoda Libre", cursive;
+    background-color: var(--bg);
+    color: var(--text); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 20vh;
+}
+
+.container{
+    margin: 30px auto;
+    /*width: 350px*/
+}
 h1{
     text-align: center;
 }
@@ -11,8 +30,9 @@ h1{
 #New-Task{
     padding: 10px;
     border: 1px solid #ccc;
-    width: 80px;
+    width: 300px;
 }
+
 
 #tasks{
 list-style: none;
@@ -47,9 +67,12 @@ button{
     cursor: pointer;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid;
-    font-family: 16px;
+    border: 1px solid #ccc;
+    font-family: sans-serif;
     font-weight: bold;
+    font-size: 18px;
+    width: 80px;
+    height: 40px;
 }
 button:hover{
     background-color: #ccc;

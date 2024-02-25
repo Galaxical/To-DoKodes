@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="To-Do.css">
 </head>
 <body>
-    <h1>ToDo List</h1>
-    <input type="text" id = "New-Task">
-    <button id="add-task">Add</button>
-    <ul id="tasks"></ul> 
+    <div class="container">
+        <h1>ToDo List</h1>
+        <form id="userInput">
+            <input type="text" id="New-Task" placeholder="Add new task">
+            <button id="add-task" type="button" onclick="addTask()">Add</button>
+        </form>
+        <ul id="tasks"></ul>
+    </div> 
 </body>
 </html>
